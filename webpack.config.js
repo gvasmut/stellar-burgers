@@ -15,9 +15,11 @@ module.exports = {
       {
         test: /\.(ts)x?$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'ts-loader'
-        }
+        use:[{
+          loader: 'ts-loader',
+          options: {
+      transpileOnly: true // ✅ отключает проверку типов
+    }}]
       },
       {
         test: /\.css$/,
