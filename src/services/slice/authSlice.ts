@@ -16,13 +16,15 @@ type TAuthState = {
   isLoading: boolean;
   isError: boolean;
   isAuthenticated: boolean;
+  isAuthChecked: boolean;
 };
 
 const initialState: TAuthState = {
   user: null,
   isLoading: false,
   isError: false,
-  isAuthenticated: false
+  isAuthenticated: false,
+  isAuthChecked: false
 };
 
 // login
@@ -79,7 +81,6 @@ const authSlice = createSlice({
       // LOGIN
       .addCase(login.pending, (state) => {
         state.isLoading = true;
-        state.isError = false;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -88,7 +89,6 @@ const authSlice = createSlice({
       })
       .addCase(login.rejected, (state) => {
         state.isLoading = false;
-        state.isError = true;
       })
 
       // REGISTER
@@ -114,11 +114,13 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.isAuthenticated = true;
         state.user = action.payload;
+        state.isAuthChecked = true;
       })
-      .addCase(fetchUser.rejected, (state) => {
+      .addCase(fetchUser.rejected, (state, action) => {
         state.isLoading = false;
         state.isAuthenticated = false;
         state.user = null;
+        state.isAuthChecked = true;
       })
 
       // UPDATE USER

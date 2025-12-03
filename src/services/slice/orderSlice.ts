@@ -21,10 +21,7 @@ const initialState: OrderState = {
 
 export const fetchOrders = createAsyncThunk<TOrder[]>(
   'orders/fetchOrders',
-  async () => {
-    const data = await getOrdersApi();
-    return data;
-  }
+  getOrdersApi
 );
 
 export const fetchOrderByNumber = createAsyncThunk<TOrder, number>(

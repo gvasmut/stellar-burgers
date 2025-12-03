@@ -20,6 +20,7 @@ import UnprotectedRoute from '../routs/UnprotectedRoute';
 import { useEffect } from 'react';
 import { useDispatch } from '../../services/store';
 import { fetchIngredients } from '../../services/slice/ingredientsSlice';
+import { fetchUser } from '../../services/slice/authSlice';
 
 const App = () => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchIngredients());
+    dispatch(fetchUser());
   }, [dispatch]);
 
   const closeModal = () => navigate(-1);
