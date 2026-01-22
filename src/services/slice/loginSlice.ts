@@ -5,7 +5,7 @@ type TLoginState = {
   isError: boolean;
 };
 
-const initialState: TLoginState = {
+export const initialState: TLoginState = {
   isError: false
 };
 
