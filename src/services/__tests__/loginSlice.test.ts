@@ -1,7 +1,8 @@
-import reducer, { login, selectIsError } from '../slice/loginSlice';
-const initialState = {
-  isError: false
-};
+import reducer, {
+  login,
+  selectIsError,
+  initialState
+} from '../slice/loginSlice';
 
 describe('loginSlice reducer', () => {
   it('должен возвращать initialState при неизвестном экшене', () => {
@@ -39,11 +40,10 @@ describe('loginSlice selectors', () => {
   it('selectIsError возвращает isError из стора', () => {
     const state = {
       login: {
-        isError: true,
+        isError: true
       }
     };
 
     expect(selectIsError(state)).toBe(true);
   });
 });
-

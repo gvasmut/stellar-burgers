@@ -1,7 +1,8 @@
 import reducer, {
   fetchOrders,
   fetchOrderByNumber,
-  postOrder
+  postOrder,
+  initialState
 } from '../slice/orderSlice';
 import { TOrder } from '@utils-types';
 
@@ -13,14 +14,6 @@ const mockOrder: TOrder = {
   createdAt: '',
   updatedAt: '',
   ingredients: []
-};
-
-const initialState = {
-  orders: [],
-  selectedOrder: null,
-  loading: false,
-  error: null,
-  orderNumber: null
 };
 
 describe('orderSlice reducer', () => {

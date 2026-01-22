@@ -4,7 +4,8 @@ import reducer, {
   selectFeedTotal,
   selectFeedTotalToday,
   selectFeedLoading,
-  selectFeedError
+  selectFeedError,
+  initialState
 } from '../slice/feedSlice';
 import { TOrder } from '@utils-types';
 const mockOrders: TOrder[] = [
@@ -18,14 +19,6 @@ const mockOrders: TOrder[] = [
     updatedAt: ''
   }
 ];
-
-const initialState = {
-  orders: [],
-  total: 0,
-  totalToday: 0,
-  isLoading: false,
-  error: null
-};
 
 describe('feedSlice reducer', () => {
   it('должен возвращать initialState при неизвестном экшене', () => {

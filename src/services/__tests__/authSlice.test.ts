@@ -3,21 +3,14 @@ import reducer, {
   register,
   fetchUser,
   updateUser,
-  logout
+  logout,
+  initialState
 } from '../slice/authSlice';
 import { TUser } from '../../utils/types';
 
 const mockUser: TUser = {
   name: 'Test User',
   email: 'user@test.com'
-};
-
-const initialState = {
-  user: null,
-  isLoading: false,
-  isError: false,
-  isAuthenticated: false,
-  isAuthChecked: false
 };
 
 describe('authSlice reducer', () => {

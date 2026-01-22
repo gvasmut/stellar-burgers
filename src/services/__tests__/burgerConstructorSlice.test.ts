@@ -5,7 +5,8 @@ import reducer, {
   moveIngredient,
   clearConstructor,
   setOrderNumber,
-  selectIngredientCount
+  selectIngredientCount,
+  initialState
 } from '../slice/burgerConstructorSlice';
 import { TIngredient } from '@utils-types';
 
@@ -41,15 +42,11 @@ const ingredient: TIngredient = {
   image_mobile: ''
 };
 
-const initialState = {
-  bun: null,
-  ingredients: [],
-  orderNumber: null
-};
-
 describe('burgerConstructorSlice reducer', () => {
   it('должен возвращать начальное состояние', () => {
-    expect(reducer(undefined, { type: 'UNKNOWN_ACTION' })).toEqual(initialState);
+    expect(reducer(undefined, { type: 'UNKNOWN_ACTION' })).toEqual(
+      initialState
+    );
   });
 
   it('setBun — устанавливает булку', () => {
@@ -74,10 +71,7 @@ describe('burgerConstructorSlice reducer', () => {
       addIngredient(ingredient)
     );
 
-    const state = reducer(
-      stateWithIngredient,
-      removeIngredient('test-id')
-    );
+    const state = reducer(stateWithIngredient, removeIngredient('test-id'));
 
     expect(state.ingredients).toHaveLength(0);
   });

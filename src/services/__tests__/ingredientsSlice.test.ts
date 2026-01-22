@@ -2,15 +2,10 @@ import reducer, {
   fetchIngredients,
   selectIngredients,
   selectIsLoading,
-  selectError
+  selectError,
+  initialState
 } from '../slice/ingredientsSlice';
 import { TIngredient } from '../../utils/types';
-
-const initialState = {
-  items: [],
-  isLoading: false,
-  error: null
-};
 
 const mockIngredients: TIngredient[] = [
   {
